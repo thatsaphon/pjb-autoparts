@@ -11,35 +11,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-
-// Slide Banner Component
-const SlideBanner = () => (
-  <Carousel className='w-full max-w-4xl mx-auto '>
-    <CarouselContent>
-      {[1, 2, 3].map((_, index) => (
-        <CarouselItem key={index}>
-          <div className='p-1'>
-            <Card>
-              <CardContent className='flex aspect-video items-center justify-center p-6 overflow-hidden'>
-                <AspectRatio ratio={16 / 9}>
-                  <Image
-                    src={`/placeholder.png`}
-                    alt={`Slide ${index + 1}`}
-                    width={800}
-                    height={400}
-                    className='rounded-md object-cover max-w-full max-h-full w-full'
-                  />
-                </AspectRatio>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
-      ))}
-    </CarouselContent>
-    <CarouselPrevious />
-    <CarouselNext />
-  </Carousel>
-)
+import SlideBanner from '@/components/slide-banner'
 
 // Best Seller and Promotion Component
 const BestSellerAndPromotion = () => (
