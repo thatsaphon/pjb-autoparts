@@ -49,7 +49,7 @@ export default function SlideBanner() {
                   <CardContent className='flex aspect-video items-center justify-center p-6 overflow-hidden'>
                     <AspectRatio ratio={16 / 9}>
                       <Image
-                        src={`/placeholder.png`}
+                        src={`https://v0.dev/placeholder.svg`}
                         alt={`Slide ${index + 1}`}
                         width={800}
                         height={400}

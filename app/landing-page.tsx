@@ -24,7 +24,7 @@ const BestSellerAndPromotion = () => (
         {[1, 2, 3, 4].map((item) => (
           <Card key={item} className='overflow-hidden'>
             <Image
-              src={`/placeholder.png`}
+              src={`https://v0.dev/placeholder.svg`}
               alt={`Product ${item}`}
               width={300}
               height={200}
@@ -59,7 +59,7 @@ const PartnershipLogo = () => (
             className='w-32 h-32 rounded-full flex items-center justify-center'
           >
             <Image
-              src={`/placeholder.png`}
+              src={`https://v0.dev/placeholder.svg`}
               alt={`Partner Logo ${logo}`}
               width={80}
               height={80}
@@ -195,7 +195,7 @@ export default function LandingPage() {
         <section className='w-full mx-auto px-4 mb-6'>
           <AspectRatio ratio={1200 / 300} asChild>
             <Image
-              src={`/placeholder.png`}
+              src={`https://v0.dev/placeholder.svg`}
               alt={`Landing Page`}
               className='rounded-md object-cover max-w-full max-h-full w-full'
               width={800}

@@ -3,6 +3,7 @@
 import {
   Atom,
   Bird,
+  Bolt,
   BookOpen,
   Bot,
   CarIcon,
@@ -10,6 +11,7 @@ import {
   Eclipse,
   Frame,
   History,
+  LampIcon,
   LifeBuoy,
   Map,
   PieChart,
@@ -31,6 +33,8 @@ import {
   SidebarItem,
   SidebarLabel,
 } from '@/components/ui/sidebar'
+import { BoxIcon } from '@radix-ui/react-icons'
+import Link from 'next/link'
 const data = {
   teams: [
     {
@@ -56,117 +60,130 @@ const data = {
   },
   navMain: [
     {
-      title: 'ผลิตภัณฑ์สารหล่อลื่น',
-      url: '#',
-      icon: SquareTerminal,
+      title: 'สินค้า',
+      url: '/products',
+      icon: Bolt,
       isActive: true,
       items: [
-        {
-          title: 'น้ำมันเครื่อง',
-          url: '#',
-          icon: History,
-          description: 'View your recent prompts',
-        },
-        {
-          title: 'น้ำมันเบรค',
-          url: '#',
-          icon: Star,
-          description: 'Browse your starred prompts',
-        },
-        {
-          title: 'น้ำมันเกียร์',
-          url: '#',
-          icon: Settings2,
-          description: 'Configure your playground',
-        },
+        { title: 'ผลิตภัณฑ์สารหล่อลื่น', url: '/products' },
+        { title: 'ระบบเบรค', url: '/products' },
+        { title: 'ข่วงล่าง', url: '/products' },
+        { title: 'ระบบเครื่องยนต์', url: '/products' },
+        { title: 'ระบบความเย็นและความร้อน', url: '/products' },
       ],
     },
-    {
-      title: 'ระบบเบรค',
-      url: '#',
-      icon: Bot,
-      items: [
-        {
-          title: 'ผ้าดิสเบรค',
-          url: '#',
-          icon: Rabbit,
-          description: 'Our fastest model for general use cases.',
-        },
-        {
-          title: 'ก้ามเบรค',
-          url: '#',
-          icon: Bird,
-          description: 'Performance and speed for efficiency.',
-        },
-        {
-          title: 'จานดิสเบรค',
-          url: '#',
-          icon: Turtle,
-          description: 'The most powerful model for complex computations.',
-        },
-      ],
-    },
-    {
-      title: 'ช่วงล่าง',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'ลูกหมากแร็ค',
-          url: '#',
-        },
-        {
-          title: 'ลูกหมากคันชัก',
-          url: '#',
-        },
-        {
-          title: 'ลูกหมากกันโครง',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'ระบบความเย็นและความร้อน',
-      url: '#',
-      icon: Code2,
-      items: [
-        {
-          title: 'พัดลมแอร์',
-          url: '#',
-        },
-        {
-          title: 'หม้อน้ำ',
-          url: '#',
-        },
-        {
-          title: 'ปั๊มน้ำ',
-          url: '#',
-        },
-        {
-          title: 'มอเตอร์พัดลม',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'อะไหล่รถบรรทุก',
-      url: '#',
-      icon: Settings2,
-      items: [
-        {
-          title: 'แหนบ',
-          url: '#',
-        },
-        {
-          title: 'สาแหรก',
-          url: '#',
-        },
-        {
-          title: 'สลักแหนบ',
-          url: '#',
-        },
-      ],
-    },
+    // {
+    //   title: 'ผลิตภัณฑ์สารหล่อลื่น',
+    //   url: '#',
+    //   icon: SquareTerminal,
+    //   isActive: true,
+    //   items: [
+    //     {
+    //       title: 'น้ำมันเครื่อง',
+    //       url: '#',
+    //       icon: History,
+    //       description: 'View your recent prompts',
+    //     },
+    //     {
+    //       title: 'น้ำมันเบรค',
+    //       url: '#',
+    //       icon: Star,
+    //       description: 'Browse your starred prompts',
+    //     },
+    //     {
+    //       title: 'น้ำมันเกียร์',
+    //       url: '#',
+    //       icon: Settings2,
+    //       description: 'Configure your playground',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'ระบบเบรค',
+    //   url: '#',
+    //   icon: Bot,
+    //   items: [
+    //     {
+    //       title: 'ผ้าดิสเบรค',
+    //       url: '#',
+    //       icon: Rabbit,
+    //       description: 'Our fastest model for general use cases.',
+    //     },
+    //     {
+    //       title: 'ก้ามเบรค',
+    //       url: '#',
+    //       icon: Bird,
+    //       description: 'Performance and speed for efficiency.',
+    //     },
+    //     {
+    //       title: 'จานดิสเบรค',
+    //       url: '#',
+    //       icon: Turtle,
+    //       description: 'The most powerful model for complex computations.',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'ช่วงล่าง',
+    //   url: '#',
+    //   icon: BookOpen,
+    //   items: [
+    //     {
+    //       title: 'ลูกหมากแร็ค',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'ลูกหมากคันชัก',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'ลูกหมากกันโครง',
+    //       url: '#',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'ระบบความเย็นและความร้อน',
+    //   url: '#',
+    //   icon: Code2,
+    //   items: [
+    //     {
+    //       title: 'พัดลมแอร์',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'หม้อน้ำ',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'ปั๊มน้ำ',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'มอเตอร์พัดลม',
+    //       url: '#',
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: 'อะไหล่รถบรรทุก',
+    //   url: '#',
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: 'แหนบ',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'สาแหรก',
+    //       url: '#',
+    //     },
+    //     {
+    //       title: 'สลักแหนบ',
+    //       url: '#',
+    //     },
+    //   ],
+    // },
   ],
 
   navSecondary: [
@@ -257,10 +274,10 @@ export function AppSidebar() {
       </SidebarHeader> */}
       <SidebarHeader className='mb-0 mt-3'>
         <SidebarItem>
-          <div className='flex gap-2'>
+          <Link className='flex gap-2' href={'/'}>
             <CarIcon />
             <span>สระบุรีอะไหล่</span>
-          </div>
+          </Link>
           {/* <Image
             src='/pjb-logo.jpg'
             alt='logo'
