@@ -9,12 +9,24 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { cn } from '@/lib/utils'
 
-export default function ProductCard() {
+type Props = {
+  view: 'big-card' | 'small-card'
+}
+export default function ProductCard({ view }: Props) {
   return (
     <Card className='w-full'>
-      <div className='grid md:grid-cols-[2fr_3fr] gap-6'>
-        <div className='relative aspect-square md:aspect-auto'>
+      <div
+        className={cn(
+          'grid md:grid-cols-[2fr_3fr] gap-6',
+          view === 'small-card' && 'md:grid-cols-1'
+        )}
+      >
+        <div
+          className='relative aspect-square md:aspect-auto'
+          hidden={view === 'small-card'}
+        >
           <Image
             src='https://www.v0.dev/placeholder.svg'
             alt='Product Image'
@@ -26,7 +38,7 @@ export default function ProductCard() {
         <div className='flex flex-col justify-between p-6'>
           <CardHeader className='p-0'>
             <div className='flex justify-between items-start mb-2'>
-              <div>
+              <div className='flex-1'>
                 <CardTitle className='text-2xl font-bold'>
                   Ergonomic Desk Chair
                 </CardTitle>
@@ -39,7 +51,7 @@ export default function ProductCard() {
               </Badge>
             </div>
           </CardHeader>
-          <CardContent className='p-0 space-y-4'>
+          <CardContent className='p-0 space-y-4' hidden={view === 'small-card'}>
             <p className='text-base'>
               Experience ultimate comfort with our ergonomic desk chair.
               Designed to support your body during long work hours, this chair
